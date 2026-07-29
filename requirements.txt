@@ -1,0 +1,12 @@
+transformers 
+datasets 
+evaluate 
+accelerate 
+sentencepiece 
+sacrebleu 
+rouge_score 
+bert_score 
+nltk 
+pandas 
+scikit-learn 
+openpyxl

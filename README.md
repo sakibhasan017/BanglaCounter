@@ -1,4 +1,4 @@
-# BanglaCounter: A Bangla Counterspeech Generation Benchmark
+# BanglaCounter: A Benchmark Dataset and Transformer-Based Evaluation Framework for Bangla Counterspeech
 
 BanglaCounter is a benchmark dataset and evaluation framework for Bangla counterspeech generation. It was developed as part of an undergraduate thesis to support research on generating constructive Bangla counterspeech from offensive Bangla text.
 

@@ -174,4 +174,3 @@ For questions or suggestions, please open an Issue on GitHub.
 
 - Md Sakib Hasan
 - Shihaful Islam Ornob
-- Md Abdullah Al Noman Khan

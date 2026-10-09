@@ -8,7 +8,7 @@ BanglaCounter contains 3,011 Bangla offensive-text and counterspeech pairs, with
 | --- | --- |
 | [`dataset/`](dataset/) | Original and English-translated data in CSV and XLSX. The English-translated release has 3,011 rows and 13 fields. The version-5 Mendeley DOI remains the dataset citation. |
 | [`Predictions/`](Predictions/) | Saved test predictions. The five files for manuscript Table 6 are `bloom_560m_test_predictions.csv`, `mbart50_test_predictions.csv`, `byt5_small_test_predictions.csv`, `mt5_base_test_predictions.csv`, and `banglagpt_test_predictions.csv`. Each has 302 rows. |
-| [`models/`](models/) | Available model notebooks, including notebooks for the five Table 6 models. They do not establish the exact package versions, checkpoint revisions, or archived training partition used in completed runs. |
+| [`models/`](models/) | Available notebooks cover BLOOM-560M, ByT5-small, mT5-base, and BanglaGPT among the five Table 6 models. The mBART50 notebook is not present. The notebooks do not establish exact package versions, checkpoint revisions, or the archived training partition used in completed runs. |
 | [`Final Metrics/`](Final%20Metrics/) | Saved historical aggregate metrics for a broader set of models. **The Novelty and Near Copy Rate values in these files used token-set Jaccard and are not the revised Table 6 values.** Other model rows are outside the five-model table. |
 | [`reproducibility/`](reproducibility/) | Scripts, reconstructed split IDs, prediction-row ID map, descriptive and agreement audit, cross-partition screen, revised word-level Levenshtein results, and the seven-column Table 6 summary. Read its [method and file guide](reproducibility/README.md). |
 

@@ -1,0 +1,113 @@
+{
+  "source_sha256": "f3f6cd90ac63f756491f33e2d86fc4a2e1cce300cc4e904d0fb8aef536320c6a",
+  "row_count": 3011,
+  "field_count": 13,
+  "fields": [
+    "id",
+    "offensive_text",
+    "offensive_text_en",
+    "counterspeech_text",
+    "counterspeech_text_en",
+    "counterspeech_type_annotator_1",
+    "counterspeech_type_annotator_2",
+    "counterspeech_type_annotator_3",
+    "counterspeech_type_final",
+    "text_type_annotator_1",
+    "text_type_annotator_2",
+    "text_type_annotator_3",
+    "text_type_final"
+  ],
+  "ids_are_1_to_3011_in_order": true,
+  "empty_cell_counts": {
+    "id": 0,
+    "offensive_text": 0,
+    "offensive_text_en": 0,
+    "counterspeech_text": 0,
+    "counterspeech_text_en": 0,
+    "counterspeech_type_annotator_1": 0,
+    "counterspeech_type_annotator_2": 0,
+    "counterspeech_type_annotator_3": 0,
+    "counterspeech_type_final": 0,
+    "text_type_annotator_1": 0,
+    "text_type_annotator_2": 0,
+    "text_type_annotator_3": 0,
+    "text_type_final": 0
+  },
+  "texts": {
+    "offensive_text": {
+      "unique": 3011,
+      "word_min": 3,
+      "word_max": 35,
+      "word_mean": 13.5271
+    },
+    "counterspeech_text": {
+      "unique": 3011,
+      "word_min": 5,
+      "word_max": 13,
+      "word_mean": 11.6533
+    }
+  },
+  "final_label_counts": {
+    "counterspeech_type_final": {
+      "fact_based": 600,
+      "moral_appeal": 620,
+      "warning_of_consequences": 559,
+      "discouraging_abuse": 641,
+      "empathy": 591
+    },
+    "text_type_final": {
+      "gender_abuse": 483,
+      "religious_hate": 472,
+      "abusive_language": 472,
+      "family_insult": 464,
+      "threat": 306,
+      "personal_insult": 398,
+      "political_abuse": 416
+    }
+  },
+  "strategy_agreement": {
+    "fleiss_kappa": 0.600899,
+    "krippendorff_alpha_nominal": 0.600943,
+    "agreement_patterns": {
+      "unanimous": 1638,
+      "two_to_one": 1236,
+      "three_different": 137
+    },
+    "majority_final_disagreements": [],
+    "pooled_rating_counts": {
+      "fact_based": 1826,
+      "moral_appeal": 1828,
+      "warning_of_consequences": 1676,
+      "discouraging_abuse": 1884,
+      "empathy": 1819
+    }
+  },
+  "category_agreement": {
+    "fleiss_kappa": 0.616261,
+    "krippendorff_alpha_nominal": 0.616303,
+    "agreement_patterns": {
+      "unanimous": 1576,
+      "two_to_one": 1337,
+      "three_different": 98
+    },
+    "majority_final_disagreements": [],
+    "pooled_rating_counts": {
+      "gender_abuse": 1392,
+      "threat": 1076,
+      "religious_hate": 1350,
+      "abusive_language": 1354,
+      "family_insult": 1364,
+      "personal_insult": 1228,
+      "political_abuse": 1269
+    }
+  },
+  "split_method": "sklearn.model_selection.train_test_split indices in CSV row order: test_size=0.2, random_state=42; split temporary 50/50 with random_state=42",
+  "split_counts": {
+    "train": 2408,
+    "validation": 301,
+    "test": 302
+  },
+  "sklearn_version": "1.8.0",
+  "exact_test_to_train_overlap_offensive_text": 0,
+  "exact_test_to_train_overlap_counterspeech_text": 0
+}

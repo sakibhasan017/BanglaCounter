@@ -1,0 +1,37 @@
+{
+  "definition": "similarity = 1 - word-level Levenshtein distance / max token length; empty/empty = 1",
+  "threshold": 0.7,
+  "training_partition": "reconstructed seed-42 split",
+  "models": {
+    "BLOOM-560M": {
+      "Novelty": 0.20290714,
+      "Near Copy Rate": 0.82119205,
+      "near_copy_count": 248,
+      "test_rows": 302
+    },
+    "mBART50": {
+      "Novelty": 0.3014002,
+      "Near Copy Rate": 0.54966887,
+      "near_copy_count": 166,
+      "test_rows": 302
+    },
+    "ByT5-small": {
+      "Novelty": 0.53255762,
+      "Near Copy Rate": 0.0,
+      "near_copy_count": 0,
+      "test_rows": 302
+    },
+    "mT5-base": {
+      "Novelty": 0.50956961,
+      "Near Copy Rate": 0.0,
+      "near_copy_count": 0,
+      "test_rows": 302
+    },
+    "BanglaGPT": {
+      "Novelty": 0.73306177,
+      "Near Copy Rate": 0.0,
+      "near_copy_count": 0,
+      "test_rows": 302
+    }
+  }
+}

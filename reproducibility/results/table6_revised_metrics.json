@@ -1,0 +1,20 @@
+{
+  "manuscript": "DIB-D-26-02376 revised Table 6",
+  "dataset": "BanglaCounter version 5, DOI 10.17632/6ysbv3mg3s.5",
+  "metric_sources": {
+    "BLEU-4": "independently recomputed from saved predictions in prediction_audit.json",
+    "ROUGE-L": "independently recomputed from saved predictions in prediction_audit.json",
+    "BERTScore F1": "retained saved aggregate; not independently rerun in this audit",
+    "METEOR": "retained saved aggregate; not independently rerun in this audit",
+    "Diversity": "independently recomputed from saved predictions in prediction_audit.json",
+    "Novelty": "recalculated word-level normalized Levenshtein against reconstructed seed-42 training responses",
+    "Near Copy Rate": "recalculated word-level normalized Levenshtein; maximum similarity >= 0.70; proportion, not percentage"
+  },
+  "models": {
+    "BLOOM-560M": {"BLEU-4": 0.0202, "ROUGE-L": 0.1015, "BERTScore F1": 0.8733, "METEOR": 0.0660, "Diversity": 0.2305, "Novelty": 0.2029, "Near Copy Rate": 0.8212},
+    "mBART50": {"BLEU-4": 0.0140, "ROUGE-L": 0.0673, "BERTScore F1": 0.8783, "METEOR": 0.0447, "Diversity": 0.0673, "Novelty": 0.3014, "Near Copy Rate": 0.5497},
+    "ByT5-small": {"BLEU-4": 0.0150, "ROUGE-L": 0.0798, "BERTScore F1": 0.8777, "METEOR": 0.0537, "Diversity": 0.0585, "Novelty": 0.5326, "Near Copy Rate": 0.0},
+    "mT5-base": {"BLEU-4": 0.0161, "ROUGE-L": 0.0847, "BERTScore F1": 0.8746, "METEOR": 0.0583, "Diversity": 0.0282, "Novelty": 0.5096, "Near Copy Rate": 0.0},
+    "BanglaGPT": {"BLEU-4": 0.0071, "ROUGE-L": 0.0407, "BERTScore F1": 0.8568, "METEOR": 0.0228, "Diversity": 0.4696, "Novelty": 0.7331, "Near Copy Rate": 0.0}
+  }
+}

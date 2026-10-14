@@ -30,7 +30,7 @@ The BLEU-4, ROUGE-L, and Diversity values were independently recomputed from the
 
 The five prediction files match 302 references and their order in the version-5 data. The 2,408/301/302 train/validation/test IDs reconstruct the two `train_test_split` calls in the available notebooks with seed 42. The test references and order agree with that reconstruction. The original run's training and validation manifest, model checkpoint revisions, complete environment, and training logs have not been independently established. Thus, Novelty and Near Copy Rate are retrospective measurements against the reconstructed training partition, not verified measurements against an archived run partition.
 
-The authors state that five Bangla-speaking contributors wrote the final version-5 counterspeech responses without AI drafting. Earlier Mendeley versions described AI-drafted responses followed by human review; the final version is represented by the authors as a replacement. A row-level writing and replacement log is not deposited here. Annotation agreement measures consistency of category labels, not independent human quality ratings of the responses.
+The authors state that three Bangla-speaking contributors wrote the final version-5 counterspeech responses without AI drafting. Earlier Mendeley versions described AI-drafted responses followed by human review; the final version is represented by the authors as a replacement. A row-level writing and replacement log is not deposited here. Annotation agreement measures consistency of category labels, not independent human quality ratings of the responses.
 
 ## Citation and rights
 

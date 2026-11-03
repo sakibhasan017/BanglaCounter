@@ -1,6 +1,7 @@
 # Reproducing the revised Data in Brief summaries
 
 This directory supports the revised five-model Table 6 and the descriptive and agreement statistics for BanglaCounter version 5. It reads [`../dataset/BanglaCounter_EnglishTranslated.csv`](../dataset/BanglaCounter_EnglishTranslated.csv) and the five matching CSVs in [`../Predictions/`](../Predictions/). No script modifies those input files.
+Response-quality ratings and their agreement audit are documented separately in [README.md](human_assessment/README.md); the annotation agreement reported for Table 4 measures category-label consistency, not response quality.
 
 ## Inputs and environment
 

@@ -35,6 +35,6 @@ The authors state that three Bangla-speaking contributors wrote the final versio
 
 ## Citation and rights
 
-Cite the dataset of record as: BanglaCounter, Mendeley Data, version 5, [https://doi.org/10.17632/6ysbv3mg3s.5](https://doi.org/10.17632/6ysbv3mg3s.5). Cite the archived reproducibility materials separately using [https://doi.org/10.5281/zenodo.23905340](https://doi.org/10.5281/zenodo.23905340). The [GitHub repository](https://github.com/sakibhasan017/BanglaCounter/) contains the maintained files. The manuscript is under review; do not cite it as a published article.
+Cite the dataset of record as: BanglaCounter, Mendeley Data, version 5, [https://doi.org/10.17632/6ysbv3mg3s.5](https://doi.org/10.17632/6ysbv3mg3s.5). Cite the archived reproducibility materials separately using [https://doi.org/10.5281/zenodo.23905340](https://doi.org/10.5281/zenodo.23921809). The [GitHub repository](https://github.com/sakibhasan017/BanglaCounter/) contains the maintained files. The manuscript is under review; do not cite it as a published article.
 
 The MIT license in this repository applies to author-contributed software. Mendeley Data states CC BY 4.0 for the released dataset; third-party social-media expressions may have separate rights and platform restrictions. Review those rights before redistributing comments or predictions that repeat them.

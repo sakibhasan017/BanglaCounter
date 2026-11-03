@@ -11,6 +11,7 @@ BanglaCounter contains 3,011 Bangla offensive-text and counterspeech pairs, with
 | [`models/`](models/) | The repository includes notebooks for all five Table 6 models: BLOOM-560M, mBART50, ByT5-small, mT5-base, and BanglaGPT. Their code records seed-42 splitting and model settings, but the original training-input checksum, complete package versions, checkpoint revisions, and archived training and validation manifests remain unavailable. |
 | [`Final Metrics/`](Final%20Metrics/) | Saved historical aggregate metrics for a broader set of models. **The Novelty and Near Copy Rate values in these files used token-set Jaccard and are not the revised Table 6 values.** Other model rows are outside the five-model table. |
 | [`reproducibility/`](reproducibility/) | Scripts, reconstructed split IDs, prediction-row ID map, descriptive and agreement audit, cross-partition screen, revised word-level Levenshtein results, and the seven-column Table 6 summary. Read its [method and file guide](reproducibility/README.md). |
+| [`reproducibility/human_assessment/`](reproducibility/human_assessment/) | Four evaluator workbooks, seven audit-result CSVs, two calculation scripts, and a README describing the assessment files and their limitations. |
 
 ## Revised Table 6
 
@@ -34,6 +35,6 @@ The authors state that three Bangla-speaking contributors wrote the final versio
 
 ## Citation and rights
 
-Cite the dataset as: BanglaCounter, Mendeley Data, version 5, [10.17632/6ysbv3mg3s.5](https://doi.org/10.17632/6ysbv3mg3s.5). For the calculations in this repository, identify the GitHub commit or tagged release used. The manuscript is under review; do not cite it as a published article.
+Cite the dataset of record as: BanglaCounter, Mendeley Data, version 5, [https://doi.org/10.17632/6ysbv3mg3s.5](https://doi.org/10.17632/6ysbv3mg3s.5). Cite the archived reproducibility materials separately using [https://doi.org/10.5281/zenodo.23905340](https://doi.org/10.5281/zenodo.23905340). The [GitHub repository](https://github.com/sakibhasan017/BanglaCounter/) contains the maintained files. The manuscript is under review; do not cite it as a published article.
 
 The MIT license in this repository applies to author-contributed software. Mendeley Data states CC BY 4.0 for the released dataset; third-party social-media expressions may have separate rights and platform restrictions. Review those rights before redistributing comments or predictions that repeat them.

@@ -5,13 +5,14 @@ This directory supports the revised five-model Table 6 and the descriptive and a
 ## Inputs and environment
 
 - The English-translated CSV contains 3,011 records and 13 fields. The GitHub copy uses LF line endings (SHA-256 `f3f6cd90ac63f756491f33e2d86fc4a2e1cce300cc4e904d0fb8aef536320c6a`). A separately verified CRLF copy has SHA-256 `6c9a08bf46f0750d306b156d1a27f6f2af8853909b5ea44d0dd8e0b92d31db21`. The GitHub copy is otherwise byte-identical after line-ending normalization; the corresponding XLSX matched the verified local file byte for byte. The deposited `release_audit.json` was rerun against the GitHub LF bytes.
-- Use Python 3, `scikit-learn==1.8.0` for the split reconstruction, and a C++17 compiler (`g++`) for the word-level edit-distance script. These are the **audit environment** requirements. The original model-training environments and checkpoint revisions were not archived in a way that can be verified here.
+- Use Python 3, `scikit-learn==1.8.0` for the split reconstruction, `matplotlib==3.10.8` for the descriptive figure, and a C++17 compiler (`g++`) for the word-level edit-distance script. These are the **audit environment** requirements. The original model-training environments and checkpoint revisions were not archived in a way that can be verified here.
 - The five `../Predictions/*_test_predictions.csv` files contain 302 outputs each and match the version-5 references. They include offensive input text, so apply the dataset's rights and privacy considerations when reusing them.
 
 From this directory, run:
 
 ```bash
 python -m pip install -r requirements.txt
+python reproduce_descriptives.py ../dataset/BanglaCounter_EnglishTranslated.csv --out-dir descriptive_outputs
 python verify_release.py ../dataset/BanglaCounter_EnglishTranslated.csv --out results
 python check_partition_similarity.py ../dataset/BanglaCounter_EnglishTranslated.csv results/reconstructed_split_ids.csv --out results/cross_partition_similarity_screen.csv
 python verify_predictions.py ../dataset/BanglaCounter_EnglishTranslated.csv results/reconstructed_split_ids.csv ../Predictions --out results/prediction_audit.json
@@ -20,10 +21,29 @@ python compute_word_levenshtein.py ../dataset/BanglaCounter_EnglishTranslated.cs
 
 `verify_release.py` records the SHA-256 of the input as read. Running it against the Mendeley CSV with CRLF instead of GitHub's LF copy may therefore change only the `source_sha256` field while preserving parsed records and statistics.
 
+## Manuscript table and figure map
+
+These computations use the released version-5 English-translated CSV, the five saved prediction files for Table 6, or the saved aggregates as identified below. Fig. 2 is an author-reported method diagram, not a computed result.
+
+| Manuscript item | Inputs and script | Output or evidence status |
+| --- | --- | --- |
+| Table 1 | Version-5 CSV header; `verify_release.py` checks field order | `results/release_audit.json` |
+| Tables 2 and 3 | Final strategy and offensive-category columns; `reproduce_descriptives.py` | `descriptive_outputs/tables_2_3_5.json` |
+| Table 4 | Six original annotation columns; `verify_release.py` | `results/release_audit.json`; agreement before adjudication |
+| Table 5 | Version-5 CSV; `reproduce_descriptives.py` and `verify_release.py` | `descriptive_outputs/tables_2_3_5.json` and `results/release_audit.json` |
+| Figure 1 | Final labels; `reproduce_descriptives.py` | `descriptive_outputs/Figure1_reproduced.png`; personal insult = 398 |
+| Figure 2 | Author-reported construction procedure | Diagram embedded in the manuscript; no computational source |
+| Table 6 BLEU-4, ROUGE-L, Diversity | Five Table 6 prediction CSVs; `verify_predictions.py` | `results/prediction_audit.json`; recomputed from saved predictions |
+| Table 6 BERTScore F1, METEOR | Historical saved files in `../Final Metrics/` | `results/table6_revised_metrics.json`; retained aggregates, not independently rerun |
+| Table 6 Novelty, Near Copy Rate | Saved predictions; retrospective train IDs; `compute_word_levenshtein.py` and `word_levenshtein.cpp` | `results/word_levenshtein_audit.json` and `results/word_levenshtein_per_row.csv`; conditional on reconstructed partition |
+
+The source social-media records, original training and validation manifests, exact run environments, and item-level response histories are unavailable. The reconstructed IDs are not proof of original train and validation membership.
+
 ## File guide
 
 | File | Purpose |
 | --- | --- |
+| `reproduce_descriptives.py` and `descriptive_outputs/` | Regenerate Tables 2, 3, 5 and Figure 1 from the released CSV. |
 | `verify_release.py` and `results/release_audit.json` | Validate field order, row counts, missing cells, class counts, exact text uniqueness, Fleiss' kappa, nominal Krippendorff's alpha, majority resolution, and split sizes. |
 | `results/reconstructed_split_ids.csv` | ID-to-partition mapping reconstructed from two seed-42 `train_test_split` calls on the released row order: 2,408 train, 301 validation, 302 test. It is **not** an archived manifest from a completed model run. |
 | `verify_predictions.py`, `results/prediction_audit.json`, and `results/prediction_row_ids.csv` | Check saved prediction references, source inputs, 302-row test order, and generated lengths; recompute BLEU-4, ROUGE-L, Diversity, and the historical Jaccard-based Novelty and Near Copy Rate. The Jaccard columns in this diagnostic audit are **not** the revised Table 6 columns. The row map links each prediction row to a released dataset ID. |

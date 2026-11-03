@@ -28,7 +28,7 @@ The English workbooks contain English text and responses. Their ratings do not i
 
 ## 2. Assessment Period and Evaluators
 
-The reported rating period was **4 August to 4 September 2026**. The workbooks contain no item-level scoring timestamps. Their file metadata dates their creation to 2 November 2026, so it cannot establish when the scores were assigned.
+The reported rating period was **23 August to 2 September 2026**. The workbooks contain no item-level scoring timestamps. Their file metadata dates their creation to 2 November 2026, so it cannot establish when the scores were assigned.
 
 The evaluators were described as recent graduates of an Information and Communication Technology (ICT) department working in Bangla Natural Language Processing (NLP). The workbooks do not record their degree titles, institutions, graduation years, or individual research experience.
 

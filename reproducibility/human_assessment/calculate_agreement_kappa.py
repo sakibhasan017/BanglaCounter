@@ -1,16 +1,21 @@
 # ============================================================
-# BANGLACOUNTER — COLAB CELL 2: EXACT AGREEMENT + WEIGHTED KAPPA
-# Run Cell 1 first. This cell re-reads the same four uploaded XLSX files.
-# It uses original paired scores; no average/final score is required.
+# BANGLACOUNTER — EXACT AGREEMENT + WEIGHTED KAPPA
+# Run against the four workbooks in raw/ to regenerate four results CSVs.
+# This uses paired scores; no average or final score is required.
 # ============================================================
 
 from pathlib import Path
 from xml.etree import ElementTree as ET
-import csv, zipfile, posixpath, re, math, hashlib
+import argparse, csv, zipfile, posixpath, re, math, hashlib
 
 # ------------------------- SETTINGS --------------------------
-DATA_DIR = Path('/content')
-OUTPUT_DIR = DATA_DIR / 'banglacounter_audit_outputs'
+HERE = Path(__file__).resolve().parent
+parser = argparse.ArgumentParser(description='Regenerate the human-assessment agreement CSVs.')
+parser.add_argument('--data-dir', type=Path, default=HERE / 'raw', help='Directory containing the four evaluator workbooks.')
+parser.add_argument('--out-dir', type=Path, default=HERE / 'results', help='Directory for the four output CSVs.')
+args = parser.parse_args()
+DATA_DIR = args.data_dir
+OUTPUT_DIR = args.out_dir
 SHEET_INDEX = 0              # Keep the same worksheet index as Cell 1
 EXPECTED_RECORDS = 3011
 SCORES = [1, 2, 3, 4, 5]
@@ -22,22 +27,21 @@ FILES = {
     'English_E2': 'Translated_Counterspeech_Quality_Eval2.xlsx',
 }
 
-try:
-    from google.colab import files as colab_files
-    IN_COLAB = True
-except ImportError:
-    colab_files = None
-    IN_COLAB = False
+REPOSITORY_NAMES = {
+    'Bangla_Counterspeech_Quality.xlsx': 'evaluator_1_bangla.xlsx',
+    'Bangla_Counterspeech_Quality_Eval2.xlsx': 'evaluator_2_bangla.xlsx',
+    'Translated_Counterspeech_Quality.xlsx': 'evaluator_1_translated.xlsx',
+    'Translated_Counterspeech_Quality_Eval2.xlsx': 'evaluator_2_translated.xlsx',
+}
 
-missing = [name for name in FILES.values() if not (DATA_DIR / name).exists()]
+def workbook_path(original_name):
+    original = DATA_DIR / original_name
+    repository = DATA_DIR / REPOSITORY_NAMES[original_name]
+    return original if original.exists() else repository
+
+missing = [name for name in FILES.values() if not workbook_path(name).exists()]
 if missing:
-    if not IN_COLAB:
-        raise FileNotFoundError('Run Colab Cell 1 first, or place all four workbooks in /content. Missing: ' + ', '.join(missing))
-    print('The four workbooks are not all present. Please upload them again.')
-    uploaded = colab_files.upload()
-    missing = [name for name in FILES.values() if not (DATA_DIR / name).exists()]
-    if missing:
-        raise FileNotFoundError('Still missing exact filenames: ' + ', '.join(missing))
+    raise FileNotFoundError(f'Missing workbooks in {DATA_DIR}: {missing}')
 
 # --------------------- XLSX READER ---------------------------
 NS_MAIN = 'http://schemas.openxmlformats.org/spreadsheetml/2006/main'
@@ -191,7 +195,7 @@ def md_table(headers, rows):
 # ------------------ LOAD AND VALIDATE FILES ------------------
 loaded = {}
 for key, filename in FILES.items():
-    loaded[key], sheet_name = load_records(DATA_DIR / filename, SHEET_INDEX)
+    loaded[key], sheet_name = load_records(workbook_path(filename), SHEET_INDEX)
     print(f'{filename}: {len(loaded[key]):,} unique IDs | worksheet: {sheet_name}')
     if len(loaded[key]) != EXPECTED_RECORDS:
         print(f'  WARNING: expected {EXPECTED_RECORDS:,} records based on project notes; found {len(loaded[key]):,}.')
@@ -282,7 +286,7 @@ write_csv(dist_path, dist_headers, distribution_rows)
 # SHA-256 hashes make it possible to identify exactly which workbooks were audited.
 hash_rows = []
 for key, filename in FILES.items():
-    digest = hashlib.sha256((DATA_DIR / filename).read_bytes()).hexdigest()
+    digest = hashlib.sha256(workbook_path(filename).read_bytes()).hexdigest()
     hash_rows.append({'workbook_role': key, 'filename': filename, 'sha256': digest})
 hash_path = OUTPUT_DIR / 'source_workbook_hashes.csv'
 write_csv(hash_path, ['workbook_role', 'filename', 'sha256'], hash_rows)
@@ -319,10 +323,4 @@ print(
 )
 print(f'\nOutput folder: {OUTPUT_DIR}')
 
-zip_path = OUTPUT_DIR / 'banglacounter_agreement_outputs.zip'
-with zipfile.ZipFile(zip_path, 'w', zipfile.ZIP_DEFLATED) as zf:
-    for path in (summary_path, matrix_path, dist_path, hash_path):
-        zf.write(path, arcname=path.name)
-print(f'Download bundle: {zip_path}')
-if IN_COLAB:
-    colab_files.download(str(zip_path))
+print('Generated:', summary_path, matrix_path, dist_path, hash_path)

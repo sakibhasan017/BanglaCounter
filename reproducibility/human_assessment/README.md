@@ -167,4 +167,12 @@ The computational audit outputs are stored in `results/`. All seven CSVs were ch
 | [`results/score_distributions.csv`](results/score_distributions.csv) | 8 | Score frequencies for each rating set, language, and criterion. |
 | [`results/source_workbook_hashes.csv`](results/source_workbook_hashes.csv) | 4 | SHA-256 hashes identifying the four source workbooks. The recorded filenames are the original names in Section 1; the bytes are unchanged by repository renaming. |
 
-The seven outputs reproduce the counts and paired-score summaries reported above. They contain no source URLs, evaluator-level timestamps, or case-specific scoring explanations. An executable script that generated these CSVs is not included in this audit package.
+The seven outputs reproduce the counts and paired-score summaries reported above. They contain no source URLs, evaluator-level timestamps, or case-specific scoring explanations. The two calculation scripts read the four workbooks in `raw/` and regenerate all seven CSVs in `results/` using Python 3's standard library:
+
+```bash
+cd reproducibility/human_assessment
+python create_disagreement_report.py
+python calculate_agreement_kappa.py
+```
+
+Run each command from a clone of the repository. The scripts also accept `--data-dir` and `--out-dir` to read from and write to other directories. Regenerating the CSVs verifies the calculations from the workbooks; it does not independently establish the date, identity, qualifications, or independence of the evaluators.

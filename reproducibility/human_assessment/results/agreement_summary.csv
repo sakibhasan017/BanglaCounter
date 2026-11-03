@@ -1,0 +1,9 @@
+﻿language,criterion,total_ids,valid_paired_ratings,incomplete_paired_ratings,exact_agreements,exact_agreement_percent,linear_weighted_cohens_kappa,observed_weighted_agreement,expected_weighted_agreement,mean_absolute_score_difference
+Bangla,relevant,3011,3011,0,1338,44.4371,0.002289,0.840418,0.840052,0.638326
+Bangla,safe,3011,3011,0,2587,85.9183,-0.005192,0.964796,0.964978,0.140817
+Bangla,factual_accuracy,3011,3011,0,2201,73.0986,-0.005554,0.910329,0.910824,0.358685
+Bangla,effectiveness,3011,3011,0,2390,79.3756,0.008292,0.943955,0.943487,0.224178
+English,relevant,3011,3011,0,1087,36.101,0.000376,0.786533,0.786452,0.853869
+English,safe,3011,3011,0,2577,85.5862,-0.028899,0.963965,0.964978,0.144138
+English,factual_accuracy,3011,3011,0,2210,73.3975,0.022507,0.904019,0.901809,0.383926
+English,effectiveness,3011,3011,0,2330,77.3829,-0.004781,0.923115,0.923481,0.307539

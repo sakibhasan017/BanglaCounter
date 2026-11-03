@@ -1,0 +1,9 @@
+﻿language,criterion,evaluator1_nonmissing_n,evaluator1_score_1,evaluator1_score_2,evaluator1_score_3,evaluator1_score_4,evaluator1_score_5,evaluator2_nonmissing_n,evaluator2_score_1,evaluator2_score_2,evaluator2_score_3,evaluator2_score_4,evaluator2_score_5
+Bangla,relevant,3011,0,0,301,1204,1506,3011,0,0,150,1054,1807
+Bangla,safe,3011,0,0,0,301,2710,3011,0,0,0,151,2860
+Bangla,factual_accuracy,3011,0,0,241,361,2409,3011,0,0,60,241,2710
+Bangla,effectiveness,3011,0,0,60,392,2559,3011,0,0,0,241,2770
+English,relevant,3011,0,151,452,1204,1204,3011,0,60,361,1054,1536
+English,safe,3011,0,0,0,151,2860,3011,0,0,0,301,2710
+English,factual_accuracy,3011,0,60,151,391,2409,3011,0,0,150,151,2710
+English,effectiveness,3011,0,0,151,301,2559,3011,0,0,120,181,2710

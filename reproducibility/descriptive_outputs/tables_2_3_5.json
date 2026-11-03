@@ -1,0 +1,67 @@
+{
+  "N": 3011,
+  "fields": [
+    "id",
+    "offensive_text",
+    "offensive_text_en",
+    "counterspeech_text",
+    "counterspeech_text_en",
+    "counterspeech_type_annotator_1",
+    "counterspeech_type_annotator_2",
+    "counterspeech_type_annotator_3",
+    "counterspeech_type_final",
+    "text_type_annotator_1",
+    "text_type_annotator_2",
+    "text_type_annotator_3",
+    "text_type_final"
+  ],
+  "unique_ids": 3011,
+  "missing_cells": 0,
+  "unique_offensive_texts": 3011,
+  "unique_responses": 3011,
+  "duplicate_pairs": 0,
+  "labels": {
+    "counterspeech_type_final": {
+      "fact_based": 600,
+      "moral_appeal": 620,
+      "warning_of_consequences": 559,
+      "discouraging_abuse": 641,
+      "empathy": 591
+    },
+    "text_type_final": {
+      "gender_abuse": 483,
+      "religious_hate": 472,
+      "abusive_language": 472,
+      "family_insult": 464,
+      "threat": 306,
+      "personal_insult": 398,
+      "political_abuse": 416
+    }
+  },
+  "word_lengths": {
+    "offensive_text": {
+      "mean": 13.53,
+      "median": 12,
+      "min": 3,
+      "max": 35
+    },
+    "counterspeech_text": {
+      "mean": 11.65,
+      "median": 12,
+      "min": 5,
+      "max": 13
+    },
+    "offensive_text_en": {
+      "mean": 16.79,
+      "median": 15,
+      "min": 3,
+      "max": 52
+    },
+    "counterspeech_text_en": {
+      "mean": 11.77,
+      "median": 12,
+      "min": 6,
+      "max": 13
+    }
+  }
+}

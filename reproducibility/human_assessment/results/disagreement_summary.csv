@@ -1,0 +1,10 @@
+﻿language,criterion,total_ids,complete_score_pairs,incomplete_score_pairs,major_disagreement_events,low_score_events,review_flag_events,unique_ids_with_review_flag,difference_threshold,low_score_threshold_inclusive
+Bangla,relevant,3011,3011,0,249,0,249,249,2,2
+Bangla,safe,3011,3011,0,0,0,0,0,2,2
+Bangla,factual_accuracy,3011,3011,0,270,0,270,270,2,2
+Bangla,effectiveness,3011,3011,0,54,0,54,54,2,2
+English,relevant,3011,3011,0,550,211,580,580,2,2
+English,safe,3011,3011,0,0,0,0,0,2,2
+English,factual_accuracy,3011,3011,0,303,60,307,307,2,2
+English,effectiveness,3011,3011,0,245,0,245,245,2,2
+All,All,3011,24088,0,1671,271,1705,1356,2,2
